@@ -1,0 +1,48 @@
+services:
+
+  db:
+    image: postgis/postgis:16-3.4
+    container_name: be_postgres_vue3ol
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: db_vue3openlayers
+    ports:
+      - "5435:5432"
+    volumes:
+      - pgdata_vue3ol:/var/lib/postgresql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d db_vue3openlayers"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    
+
+  backend:
+    build: ./server
+    container_name: be_vue3ol
+    ports:
+      - "3001:3001"
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: db_vue3openlayers
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      GROQ_API_KEY: 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
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    build: .
+    container_name: fe_vue3ol
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+
+volumes:
+  pgdata_vue3ol:
