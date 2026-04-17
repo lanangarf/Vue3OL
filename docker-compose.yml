@@ -25,13 +25,14 @@ services:
     container_name: be_vue3ol
     ports:
       - "3001:3001"
+    env_file:
+     - .env
     environment:
       DB_HOST: db
       DB_PORT: 5432
       DB_NAME: db_vue3openlayers
       DB_USER: postgres
       DB_PASSWORD: postgres
-      GROQ_API_KEY: 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
     depends_on:
       db:
         condition: service_healthy
