@@ -1,6 +1,7 @@
 # Environment variables
 .env
 server/.env
+.dockerignore
 
 # Logs
 logs
