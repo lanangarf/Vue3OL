@@ -10,10 +10,10 @@ Mac / Linux
 > cp .env.example .env
 Buka .env dan isi konfigurasinya
 
-2. AI ASSISTANT APIKEY (FOR INTERNAL ANYWAY)
+# 2. AI ASSISTANT APIKEY (FOR INTERNAL ANYWAY)
 > https://drive.google.com/file/d/1xItJxnDxs-gKkRMbDklOonK-aBZnIVkE/view?usp=sharing
 
 
-2. Pastikan Docker Desktop sudah running, lalu buka terminal di folder project:
+# 3. Pastikan Docker Desktop sudah running, lalu buka terminal di folder project:
 Windows / Mac
 > docker-compose up --build
