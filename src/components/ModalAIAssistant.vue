@@ -117,7 +117,7 @@ Berikan insight spasial yang konkret dan berguna untuk perencanaan wilayah.`;
     : prompt;
 
   try {
-    const response = await fetch('http://localhost:3001/api/chat', {
+    const response = await fetch('/api/chat', {
       method:  'POST',
       headers: { 'Content-Type': 'application/json' },
       body:    JSON.stringify({ message: contextPrompt, province: name }),
@@ -149,7 +149,7 @@ async function sendMessage() {
     : `Konteks: User bertanya tentang Provinsi "${name}" di peta Indonesia.\n\nPertanyaan: ${msg}`;
 
   try {
-    const response = await fetch('http://localhost:3001/api/chat', {
+    const response = await fetch('/api/chat', {
       method:  'POST',
       headers: { 'Content-Type': 'application/json' },
       body:    JSON.stringify({ message: contextPrompt, province: name }),
