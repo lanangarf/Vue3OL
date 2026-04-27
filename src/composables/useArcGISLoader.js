@@ -9,7 +9,7 @@ import Feature        from "ol/Feature";
 import Point          from "ol/geom/Point";
 
 // ─── Proxy Express ────────────────────────────────────────────────────────────
-const PROXY = "http://localhost:3001/api/arcgis-proxy";
+const PROXY = (import.meta.env.VITE_API_URL ?? "") + "/api/arcgis-proxy";
 export function proxyUrl(targetUrl) {
   return `${PROXY}?url=${encodeURIComponent(targetUrl)}`;
 }
@@ -42,12 +42,12 @@ export const NAME_FIELDS = {
 
 // ─── GeoJSON lokal via fetch() ────────────────────────────────────────────────
 const OFFLINE_PATHS = {
-  bandara:   "/src/assets/data/bandara.geojson",
-  pasar:     "/src/assets/data/pasar.geojson",
-  pelabuhan: "/src/assets/data/pelabuhan.geojson",
-  stasiun:   "/src/assets/data/stasiun.geojson",
-  terminal:  "/src/assets/data/terminal.geojson",
-  wisata:    "/src/assets/data/wisata.geojson",
+  bandara:   "/data/bandara.geojson",
+  pasar:     "/data/pasar.geojson",
+  pelabuhan: "/data/pelabuhan.geojson",
+  stasiun:   "/data/stasiun.geojson",
+  terminal:  "/data/terminal.geojson",
+  wisata:    "/data/wisata.geojson",
 };
 
 const LAYER_KEYS = ["pasar","sekolah","terminal","wisata","stasiun","bandara","pelabuhan"];
