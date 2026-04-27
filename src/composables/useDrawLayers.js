@@ -7,7 +7,7 @@ import * as XLSX from "xlsx";
 
 // ─── Config ──────────────────────────────────────────────────────────────────
 
-const API = "http://localhost:3001/api";
+const API = import.meta.env.VITE_API_URL ?? "/api";
 
 // ─── Canvas icon renderer ─────────────────────────────────────────────────────
 // Render Material Symbol ke canvas → data URL untuk ol/style Icon
